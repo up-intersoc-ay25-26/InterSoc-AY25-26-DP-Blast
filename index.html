@@ -11,9 +11,14 @@
 </head>
 <body class="bg-[#004771] text-white min-h-screen flex items-center justify-center font-mono px-4">
     <div class="w-full max-w-screen-md text-center">
+        <h1 id="opened_messenger" class="hidden text-xl md:text-xl font-semibold px-4 py-2 rounded-md shadow-md mt-8">
+            <i class="fa-solid fa-triangle-exclamation"></i>
+            Open in default browser to download the DP Frame
+        </h1>
+        
         <!--Welcome Banner for User Inputs-->
         <div id="welcome_banner">
-            <div class="bg-gradient-to-r from-[#003355] via-[#004771] to-[#006699] w-1/2 mx-auto flex flex-col items-center p-5 rounded-lg shadow-xl bg-white/10 backdrop-blur-lg">
+            <div class="mt-4 bg-gradient-to-r from-[#003355] via-[#004771] to-[#006699] w-1/2 mx-auto flex flex-col items-center p-5 rounded-lg shadow-xl bg-white/10 backdrop-blur-lg">
                 <img class="mx-auto w-32 md:w-48" src="./src/images/InterSoc_Logo.png" alt="intersoc_logo">
 
                 <h2 class="text-center text-xl md:text-2xl font-bold mb-2">
@@ -58,7 +63,7 @@
             </div>
 
             <!--Get Started Button to show dp creation div-->
-            <div class="bg-[#002a43] pb-5 border border-[#002a43] rounded-b-md">
+            <div class="mb-4 bg-[#002a43] pb-5 border border-[#002a43] rounded-b-md">
                 <button id="get_started_btn" type="button" class="bg-[#FFB400] text-[#1A1A1A] font-bold px-6 py-2 w-71 md:w-64 rounded-md hover:bg-amber-700 border border-gray-300 cursor-pointer transition transform duration-100 active:scale-90">
                     GET STARTED!
                     <i class="fa-solid fa-rocket"></i>

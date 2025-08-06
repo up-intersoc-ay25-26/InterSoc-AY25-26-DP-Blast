@@ -40,6 +40,8 @@ const adjustImageBtns = {
 };
 
 window.onload = function() {
+    detectIfMessenger();
+
     $('#get_started_btn').on("click", showDPCreation);
     $('#circular').on("change", checkCircular);
     $('#upload_btn').on("click", bindImgInput);
@@ -58,6 +60,17 @@ window.onload = function() {
 
     adjustImageBtns.reset.addEventListener("click", () => resetImagePos());
 };
+
+function detectIfMessenger() {
+    const ua = navigator.userAgent.toLowerCase();
+    const isMessenger = ua.includes("fban") || ua.includes("fbav");
+
+    if (isMessenger) {
+        document.getElementById("opened_messenger").classList.remove("hidden");
+    } else {
+        window.location.href = "https://up-intersoc-ay25-26.github.io/InterSoc-AY25-26-DP-Blast/";
+    }
+}
 
 function bindImgInput() {
     $('#photo_upload').click();
