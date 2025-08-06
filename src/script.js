@@ -1,16 +1,14 @@
 console.log("script loaded");
 
-(function() {
+(function () {
     const ua = navigator.userAgent || navigator.vendor || window.opera;
-
     const isMessenger = ua.includes("FBAN") || ua.includes("FBAV");
 
-    if (isMessenger) {
-        // Try to open the link in a new tab (some Messenger versions allow it)
-        const externalUrl = "https://up-intersoc-ay25-26.github.io/InterSoc-AY25-26-DP-Blast/";
+    const externalUrl = "https://up-intersoc-ay25-26.github.io/InterSoc-AY25-26-DP-Blast/";
 
-        // This will open in browser in most Messenger versions
-        window.location.href = `https://www.facebook.com/open_link/?link=${encodeURIComponent(externalUrl)}`;
+    if (isMessenger) {
+         // Go straight to the external site
+        window.location.href = externalUrl;
     }
 })();
 
