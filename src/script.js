@@ -237,11 +237,17 @@ function resetImagePos() {
 
 function getCaptionTemplate() {
     return `
-“i didn’t choose the grind, the grind chose me 💔⛏️”
+“I didn’t choose the grind — the grind chose me.” 💔⛏️
+But hey, might as well make it legendary.
 
-Hi, my name is ${stud_name}, a ${year_level} student from BS Computer Science 💻✨ 
-and join us in our journey of touching grass (blocks) 
-and discovering the unknowns 🧐 of AY 2025-2026 ⛏️🗡️.
+Hi! I’m ${stud_name}, a proud ${year_level} BS Computer Science student here in UP Tacloban 💻✨
+This year, we’re not just coding — we’re crafting our future, one block at a time.
+Join us as we touch grass (and maybe a few creepers) 🌱💥,
+explore the mysterious biomes of academic life 🧭📚,
+and unlock the hidden enchantments of AY 2025-2026 ⛏️🗡️
+
+So gear up, equip your diamond armor, and let's conquer this school year together.
+See you in the overworld (and maybe in the finals boss fight)! 🛡️🔥
 
 #UPTacloban
 #AY2526
