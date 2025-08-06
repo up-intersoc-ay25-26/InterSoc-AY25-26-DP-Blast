@@ -67,8 +67,7 @@ function detectIfMessenger() {
 
     if (isMessenger) {
         document.getElementById("opened_messenger").classList.remove("hidden");
-    } else {
-        window.location.href = "https://up-intersoc-ay25-26.github.io/InterSoc-AY25-26-DP-Blast/";
+        return;
     }
 }
 
