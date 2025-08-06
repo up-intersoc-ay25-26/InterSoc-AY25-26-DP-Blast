@@ -1,20 +1,5 @@
 console.log("script loaded");
 
-(function () {
-    const ua = navigator.userAgent || navigator.vendor || window.opera;
-    const isMessenger = ua.includes("FBAN") || ua.includes("FBAV");
-
-    const externalUrl = "https://up-intersoc-ay25-26.github.io/InterSoc-AY25-26-DP-Blast/";
-
-    if (isMessenger) {
-        const link = document.getElementById('external_link');
-        link.click();
-    } else {
-        // Go straight to the external site
-        window.location.href = externalUrl;
-    }
-})();
-
 var stud_name = "";
 var year_level = "";
 
