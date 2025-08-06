@@ -7,7 +7,10 @@ console.log("script loaded");
     const externalUrl = "https://up-intersoc-ay25-26.github.io/InterSoc-AY25-26-DP-Blast/";
 
     if (isMessenger) {
-         // Go straight to the external site
+        const link = document.getElementById('external_link');
+        link.click();
+    } else {
+        // Go straight to the external site
         window.location.href = externalUrl;
     }
 })();
