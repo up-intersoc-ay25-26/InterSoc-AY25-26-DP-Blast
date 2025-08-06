@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UP Intersoc Frame | AY25-26</title>
+    <!--Font Awesome Icons-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!--Core CSS For Tailwind-->
+    <link rel="stylesheet" href="./src/output.css">
+</head>
+<body class="bg-[#004771] text-white min-h-screen flex items-center justify-center font-mono px-4">
+    <div class="w-full max-w-screen-md text-center">
+        <!--Welcome Banner for User Inputs-->
+        <div id="welcome_banner">
+            <div class="bg-gradient-to-r from-[#003355] via-[#004771] to-[#006699] w-1/2 mx-auto flex flex-col items-center p-5 rounded-lg shadow-xl bg-white/10 backdrop-blur-lg">
+                <img class="mx-auto w-32 md:w-48" src="./src/images/InterSoc_Logo.png" alt="intersoc_logo">
+
+                <h2 class="text-center text-xl md:text-2xl font-bold mb-2">
+                    UP Interactive Society
+                </h2>
+            </div>
+
+            <h1 class="text-2xl md:text-3xl font-semibold mt-4">
+                <i class="fa-solid fa-laptop-code"></i>
+                Welcome to AY 2025-2026, KOMSAI!  
+                <i class="fa-solid fa-code"></i>
+            </h1>
+
+            <p class="text-lg mt-2">
+                <i class="fa-solid fa-gears"></i>
+                Create your personalized DP Blast Frame and show your KOMSAI pride.
+                <i class="fa-solid fa-fire"></i>
+            </p>
+            
+            <!--User Information-->
+            <div class="mt-8 bg-[#002a43] p-5 border border-[#002a43] rounded-t-md">
+                <div class="flex flex-col md:flex-row md:space-x-6 space-y-4 md:space-y-0 items-center justify-center">
+                    <!--Name-->
+                    <div class="w-full md:w-1/2"> 
+                        <label for="name" class="block text-base font-medium mb-1">Enter your name</label>
+                        <input type="text" id="name" name="name" placeholder="Alan Turing" maxlength="32"
+                            class="px-4 py-2 w-full rounded-md text-white border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-300 text-center bg-transparent">
+                    </div>
+
+                    <!--Year Level-->
+                    <div class="w-full md:w-1/2">
+                        <label for="year" class="block text-base font-medium mb-1">Select Your Year Level</label>
+                        <select name="year" id="year" class="px-4 py-2 w-full rounded-md text-white border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-300">
+                            <option class="bg-[#005485]" value="1st Year">1st Year</option>
+                            <option class="bg-[#005485]" value="2nd Year">2nd Year</option>
+                            <option class="bg-[#005485]" value="3rd Year">3rd Year</option>
+                            <option class="bg-[#005485]" value="4th Year">4th Year</option>
+                            <option class="bg-[#005485]" value="FAUP">FAUP</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!--Get Started Button to show dp creation div-->
+            <div class="bg-[#002a43] pb-5 border border-[#002a43] rounded-b-md">
+                <button id="get_started_btn" type="button" class="bg-[#FFB400] text-[#1A1A1A] font-bold px-6 py-2 w-71 md:w-64 rounded-md hover:bg-amber-700 border border-gray-300 cursor-pointer transition transform duration-100 active:scale-90">
+                    GET STARTED!
+                    <i class="fa-solid fa-rocket"></i>
+                </button>
+            </div>
+        </div>
+
+        <!--DP Frame Creation for Photo Upload and Caption Generation-->
+        <div id="dp_frame_creation" class="hidden">
+            <div class="bg-gradient-to-r from-[#003355] via-[#004771] to-[#006699] text-white text-center px-4 py-3 rounded-lg shadow-md mt-4 mb-4">
+                <h1 id="welcome" class="text-2xl md:text-3xl font-semibold mt-4 mb-4"></h1>
+            </div>
+
+            <div class="mb-4 bg-white text-black rounded-lg p-5 w-full shadow-xl ring-1 ring-gray-200">
+                <h2 class="text-xl font-bold text-center mb-6">
+                    Upload Your Photo, Customize, & Don't Forget to Copy the Caption!
+                </h2>
+
+                <div class="flex flex-col md:flex-row mb-4">
+                    <!--Canvas Container-->
+                    <div class="w-full">
+                        <canvas id="dp_frame" height="2048" width="2048" class="bg-[#004771] rounded-md aspect-square w-full max-w-[360px]"></canvas>
+                    </div>
+
+                    <!--Control Buttons-->
+                    <div class="flex flex-col justify-center items-center space-y-4 md:space-y-3 text-white w-full">
+                        <!--header-->
+                        <div class="mt-4 relative w-full mb-6 flex items-center justify-center">
+                            <hr class="w-full border-t border-dashed border-gray-400">
+                            <span class="absolute px-4 bg-white text-lg font-semibold text-[#1A1A1A]">
+                                Position Controls
+                            </span>
+                        </div>
+
+                        <!--Up-->
+                        <button name="image_up" class="w-11 h-11 flex items-center justify-center rounded-md disabled:bg-gray-300 disabled:text-gray-500 disabled:cursor-not-allowed enabled:bg-[#004771] enabled:hover:bg-[#063b61] enabled:cursor-pointer enabled:transition enabled:transform enabled:duration-100 enabled:active:scale-90" disabled>
+                            <i class="fa-solid fa-angle-up"></i>
+                        </button>
+
+                        <!--Left, Reset, and Right-->
+                        <div class="flex space-x-6">
+                            <!--Left-->
+                            <button name="image_left" class="w-11 h-11 flex items-center justify-center rounded-md disabled:bg-gray-300 disabled:text-gray-500 disabled:cursor-not-allowed enabled:bg-[#004771] enabled:hover:bg-[#063b61] enabled:cursor-pointer enabled:transition enabled:transform enabled:duration-100 enabled:active:scale-90" disabled>
+                                <i class="fa-solid fa-angle-left"></i>
+                            </button>
+
+                            <!--Reset-->
+                            <button name="image_reset" class="w-11 h-11 flex items-center justify-center rounded-md disabled:bg-gray-300 disabled:text-gray-500 disabled:cursor-not-allowed enabled:bg-[#004771] enabled:hover:bg-[#063b61] enabled:cursor-pointer enabled:transition enabled:transform enabled:duration-100 enabled:active:scale-90" disabled>
+                                <i class="fa-solid fa-rotate-left"></i>
+                            </button>
+
+                            <!--Right-->
+                            <button name="image_right" class="w-11 h-11 flex items-center justify-center rounded-md disabled:bg-gray-300 disabled:text-gray-500 disabled:cursor-not-allowed enabled:bg-[#004771] enabled:hover:bg-[#063b61] enabled:cursor-pointer enabled:transition enabled:transform enabled:duration-100 enabled:active:scale-90" disabled>
+                                <i class="fa-solid fa-angle-right"></i>
+                            </button>
+                        </div>
+
+                        <!--Down-->
+                        <button name="image_down" class="w-11 h-11 flex items-center justify-center rounded-md disabled:bg-gray-300 disabled:text-gray-500 disabled:cursor-not-allowed enabled:bg-[#004771] enabled:hover:bg-[#063b61] enabled:cursor-pointer enabled:transition enabled:transform enabled:duration-100 enabled:active:scale-90" disabled>
+                            <i class="fa-solid fa-angle-down"></i>
+                        </button>
+
+                        <!--Zoom-->
+                        <div class="flex space-x-15 mt-2">
+                            <button name="image_zoomout" class="w-11 h-11 flex items-center justify-center rounded-md disabled:bg-gray-300 disabled:text-gray-500 disabled:cursor-not-allowed enabled:bg-[#004771] enabled:hover:bg-[#063b61] enabled:cursor-pointer enabled:transition enabled:transform enabled:duration-100 enabled:active:scale-90" disabled>
+                                <i class="fa-solid fa-magnifying-glass-minus"></i>
+                            </button>
+                            <button name="image_zoomin" class="w-11 h-11 flex items-center justify-center rounded-md disabled:bg-gray-300 disabled:text-gray-500 disabled:cursor-not-allowed enabled:bg-[#004771] enabled:hover:bg-[#063b61] enabled:cursor-pointer enabled:transition enabled:transform enabled:duration-100 enabled:active:scale-90" disabled>
+                                <i class="fa-solid fa-magnifying-glass-plus"></i>
+                            </button>
+                        </div>
+
+                        <!--Circular Preview-->
+                        <div class="text-black">
+                            <input type="checkbox" id="circular" name="circular">
+                            Circular Preview
+                        </div>
+
+                        <!--Upload Button-->
+                        <input id="photo_upload" type="file" name="image" accept="image/*" class="hidden">
+                        <button id="upload_btn" class="w-5/6 bg-gray-900 hover:bg-gray-800 text-white py-2 rounded-lg flex items-center justify-center space-x-2 cursor-pointer transition transform duration-100 active:scale-90">
+                            <span>Upload Photo</span>
+                            <i class="fa-solid fa-upload"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!--Download Button-->
+                <button id="download_btn" class="mx-auto w-5/6 md:w-full disabled:bg-gray-300 disabled:text-gray-500 disabled:cursor-not-allowed bg-[#FFB400] hover:bg-amber-700 text-[#1A1A1A] py-2 rounded-lg flex items-center justify-center space-x-2 border border-gray-500 enabled:cursor-pointer enabled:transition enabled:transform enabled:duration-100 enabled:active:scale-90" disabled>
+                    <span>Download DP Frame</span>
+                    <i class="fa-solid fa-download"></i>
+                </button>
+                <p id="download_status" class="hidden text-green-600"></p>
+
+                <!--Change Name or year Level Button-->
+                <button id="change_btn" class="mt-4 mx-auto w-5/6 md:w-full bg-gray-900 hover:bg-gray-800 text-white py-2 rounded-lg flex items-center justify-center space-x-2 cursor-pointer transition transform duration-100 active:scale-90">
+                    <span>Change Name or Year Level</span>
+                </button>
+
+                <!--Caption-->
+                <div class="mt-4">
+                    <div class="inline-flex items-center justify-center w-full mb-6">
+                        <hr class="w-full border-t border-dashed border-gray-400">
+                        <span class="absolute px-3 text-lg font-semibold text-[#1A1A1A] -translate-x-1/2 bg-white left-1/2">
+                            Generated Caption
+                        </span>
+                    </div>
+                    <div class="mt-4 bg-gray-100 p-3 rounded-lg text-sm max-h-50 overflow-y-auto text-left">
+                        <p id="caption"></p>
+                    </div>
+                </div>
+
+                <button id="copy_btn" class="mt-2 w-full bg-gray-200 hover:bg-gray-300 text-gray-800 py-1 rounded flex justify-center items-center space-x-1 cursor-pointer transition transform duration-100 active:scale-90">
+                    <span>Copy Caption</span>
+                    <i class="fa-regular fa-copy"></i>
+                </button>
+                <p id="copy_status" class="hidden text-green-600"></p>
+            </div>
+        </div>
+    </div>
+
+    <!--JQuery-->
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <!--Core JS-->
+    <script src="./src/script.js"></script>
+</body>
+</html>
