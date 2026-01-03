@@ -67,7 +67,6 @@ function detectIfMessenger() {
 
     if (isMessenger) {
         document.getElementById("opened_messenger").classList.remove("hidden");
-        document.getElementById("welcome_banner").classList.add("hidden");
         return;
     }
 }
