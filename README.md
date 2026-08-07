@@ -7,5 +7,6 @@ To deploy:
 2. Click on Pages
 3. Change the branch from None to the AY202X-202Y
 4. Click save
+
 Github Pages will deploy the DP Blast static site.
 
