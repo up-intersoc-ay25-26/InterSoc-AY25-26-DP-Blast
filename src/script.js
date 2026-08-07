@@ -1,3 +1,5 @@
+import { getCaption } from "./captions.js";
+
 console.log("script loaded");
 
 var stud_name = "";
@@ -97,7 +99,6 @@ function showDPCreation() {
     const welcomeMsg = document.getElementById('welcome');
     welcomeMsg.textContent = `Welcome aboard, ${stud_name}! Rocking that (${year_level}) KOMSAI spirit!`;
 
-
     const ayTitle = document.getElementById('ay-title');
     ayTitle.textContent = `Academic Year ${academic_year}`;
 
@@ -143,7 +144,6 @@ function loadDPFrameImg() {
     
     // get the image
     let frameSrc = `./src/images/frames/AY${academic_year}/${year_level}.png`;
-    console.log(frameSrc);
     images.frame.src = frameSrc;
     images.frame.onload = () => {
         drawDPFrame();
@@ -247,28 +247,7 @@ function resetImagePos() {
 }
 
 function getCaptionTemplate() {
-    const yearLevelFormatted = year_level.includes('faup') ? year_level.toUpperCase() : year_level.replace('-y', ' Y');
-
-    return `
-𝓖𝓸𝓽 𝓶𝔂 𝓥𝓘𝓟 𝓹𝓪𝓼𝓼… 𝓽𝓾𝓻𝓷𝓼 𝓸𝓾𝓽 𝓲𝓽’𝓼 𝓳𝓾𝓼𝓽 𝓶𝔂 𝓼𝓽𝓾𝓭𝓮𝓷𝓽 𝓘𝓓 🎟️😭
-
-Hi! I’m ${stud_name}, a ${yearLevelFormatted} BS Computer Science student from UP Tacloban👾✨
-
-Welcome to the biggest lineup of the year, featuring coding marathons, surprise quizzes, caffeine as our official sponsor, and classmates who’ll soon become our favorite concert buddies!🎵
-
-Join us as we chase deadlines like they’re front-row barricades 🎸, survive the loudest drops of exam week 🎧, and celebrate every successful run like confetti just fell from the sky 🎉
-
-So put on your festival wristband, keep your laptops charged, and let’s make AY 2026-2027 one for the history books 📚
-
-𝓢𝓮𝓮 𝔂𝓸𝓾 𝓪𝓽 𝓽𝓱𝓮 𝓶𝓪𝓲𝓷 𝓼𝓽𝓪𝓰𝓮! 🤘💙
-
-#UPTacloban 
-#AY20262027
-#forloopaloza
-
-Frame by Sinead Colandog and Herielle Margallo
-Caption by Lorenz Ed Ocampo
-`.trim();
+    return getCaption(year_level, academic_year, stud_name).trim();
 }
 
 function copyCaption() {
@@ -294,5 +273,6 @@ function changeInputs() {
     document.getElementById('dp_frame_creation').classList.add("hidden");
 
     // Show the welcome_banner section
+    loadDPFrameImg();
     document.getElementById('welcome_banner').classList.remove("hidden");
 }
