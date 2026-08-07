@@ -13,7 +13,7 @@ const height = canvas.height;
 const moveMagnitude = 8;
 const zoomMagnitude = 1.05;
 
-const academic_years = [ '2025-2026', '2026-2027' ]
+const academic_years = [ '2024-2025', '2025-2026', '2026-2027' ]
 const year_levels = [
     '1st-year',
     '2nd-year',
@@ -143,7 +143,7 @@ function loadDPFrameImg() {
     }
     
     // get the image
-    let frameSrc = `./src/images/frames/AY${academic_year}/${year_level}.png`;
+    let frameSrc = `./src/images/frames/AY${academic_year}/${academic_year.includes('2024-2025') ? 'frame' : year_level}.png`;
     images.frame.src = frameSrc;
     images.frame.onload = () => {
         drawDPFrame();
