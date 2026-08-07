@@ -253,7 +253,7 @@ function getCaptionTemplate() {
 }
 
 function copyCaption() {
-    cpyStatus = document.getElementById('copy_status');
+    const cpyStatus = document.getElementById('copy_status');
     navigator.clipboard.writeText(getCaptionTemplate())
     .then(() => {
         cpyStatus.innerHTML = `<i class="fa-solid fa-circle-check text-green-600"></i> Caption Copied Successfully!`;
