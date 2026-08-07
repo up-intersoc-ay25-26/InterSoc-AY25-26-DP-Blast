@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UP Intersoc Frame | AY26-27</title>
+    <title>UP Intersoc Frame</title>
     <!--Font Awesome Icons-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!--Core CSS For Tailwind-->
@@ -28,7 +28,7 @@
 
             <h1 class="text-2xl md:text-3xl font-semibold mt-4">
                 <i class="fa-solid fa-laptop-code"></i>
-                Welcome to AY 2026-2027, KOMSAI!  
+                Welcome to UP TACLOBAN KOMSAI!  
                 <i class="fa-solid fa-code"></i>
             </h1>
 
@@ -40,23 +40,30 @@
             
             <!--User Information-->
             <div class="mt-8 bg-[#002a43] p-5 border border-[#002a43] rounded-t-md">
+                <div class="w-full mb-6">
+                        <label for="academic-year" class="block text-base font-medium mb-1">Select Academic Year</label>
+                        <select name="academic-year" id="academic-year" class="px-4 py-2 w-full rounded-md text-white border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-300">
+                            <option class="bg-[#005485]" value="2025-2026">AY 2025-2026</option>
+                            <option class="bg-[#005485]" value="2026-2027" selected>AY 2026-2027</option>
+                        </select>
+                    </div>
                 <div class="flex flex-col md:flex-row md:space-x-6 space-y-4 md:space-y-0 items-center justify-center">
                     <!--Name-->
                     <div class="w-full md:w-1/2"> 
                         <label for="name" class="block text-base font-medium mb-1">Enter your name</label>
                         <input type="text" id="name" name="name" placeholder="Juan Dela Cruz" maxlength="32"
-                            class="px-4 py-2 w-full rounded-md text-white border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-300 text-center bg-transparent">
+                            class="px-4 py-2 w-full rounded-md text-white border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-300 bg-transparent">
                     </div>
 
                     <!--Year Level-->
                     <div class="w-full md:w-1/2">
                         <label for="year" class="block text-base font-medium mb-1">Select Your Year Level</label>
                         <select name="year" id="year" class="px-4 py-2 w-full rounded-md text-white border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-300">
-                            <option class="bg-[#005485]" value="1st Year">1st Year</option>
-                            <option class="bg-[#005485]" value="2nd Year">2nd Year</option>
-                            <option class="bg-[#005485]" value="3rd Year">3rd Year</option>
-                            <option class="bg-[#005485]" value="4th Year">4th Year</option>
-                            <option class="bg-[#005485]" value="FAUP">FAUP</option>
+                            <option class="bg-[#005485]" value="1st-year">1st Year</option>
+                            <option class="bg-[#005485]" value="2nd-year">2nd Year</option>
+                            <option class="bg-[#005485]" value="3rd-year">3rd Year</option>
+                            <option class="bg-[#005485]" value="4th-year">4th Year</option>
+                            <option class="bg-[#005485]" value="faup">FAUP</option>
                         </select>
                     </div>
                 </div>
@@ -74,7 +81,8 @@
         <!--DP Frame Creation for Photo Upload and Caption Generation-->
         <div id="dp_frame_creation" class="hidden">
             <div class="bg-gradient-to-r from-[#003355] via-[#004771] to-[#006699] text-white text-center px-4 py-3 rounded-lg shadow-md mt-4 mb-4">
-                <h1 id="welcome" class="text-2xl md:text-3xl font-semibold mt-4 mb-4"></h1>
+                <h1 id="ay-title" class="text-2xl md:text-3xl font-semibold mt-4 mb-4"></h1>
+                <h2 id="welcome" class="text-l md:text-l font-semibold mt-4 mb-4"></h2>
             </div>
 
             <div class="mb-4 bg-white text-black rounded-lg p-5 w-full shadow-xl ring-1 ring-gray-200">
