@@ -95,11 +95,11 @@ function showDPCreation() {
 
     // Update Welcome Message and Caption
     const welcomeMsg = document.getElementById('welcome');
-    welcomeMsg.innerHTML = `Welcome aboard, ${stud_name}! Rocking that (${year_level}) KOMSAI spirit!`;
+    welcomeMsg.textContent = `Welcome aboard, ${stud_name}! Rocking that (${year_level}) KOMSAI spirit!`;
 
 
     const ayTitle = document.getElementById('ay-title');
-    ayTitle.innerHTML = `Academic Year ${academic_year}`;
+    ayTitle.textContent = `Academic Year ${academic_year}`;
 
     const caption = document.getElementById('caption');
     caption.innerText = getCaptionTemplate();
@@ -247,10 +247,12 @@ function resetImagePos() {
 }
 
 function getCaptionTemplate() {
+    const yearLevelFormatted = year_level.includes('faup') ? year_level.toUpperCase() : year_level.replace('-y', ' Y');
+
     return `
 𝓖𝓸𝓽 𝓶𝔂 𝓥𝓘𝓟 𝓹𝓪𝓼𝓼… 𝓽𝓾𝓻𝓷𝓼 𝓸𝓾𝓽 𝓲𝓽’𝓼 𝓳𝓾𝓼𝓽 𝓶𝔂 𝓼𝓽𝓾𝓭𝓮𝓷𝓽 𝓘𝓓 🎟️😭
 
-Hi! I’m ____, a ____ Year BS Computer Science student from UP Tacloban👾✨
+Hi! I’m ${stud_name}, a ${yearLevelFormatted} BS Computer Science student from UP Tacloban👾✨
 
 Welcome to the biggest lineup of the year, featuring coding marathons, surprise quizzes, caffeine as our official sponsor, and classmates who’ll soon become our favorite concert buddies!🎵
 
