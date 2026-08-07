@@ -13,7 +13,12 @@ const height = canvas.height;
 const moveMagnitude = 8;
 const zoomMagnitude = 1.05;
 
-const academic_years = [ '2024-2025', '2025-2026', '2026-2027' ]
+const academic_years = [ 
+    '2024-2025', 
+    '2025-2026', 
+    '2026-2027' 
+]
+
 const year_levels = [
     '1st-year',
     '2nd-year',
@@ -58,10 +63,8 @@ window.onload = function() {
     adjustImageBtns.down.addEventListener("click", () => moveImage(0, moveMagnitude));
     adjustImageBtns.left.addEventListener("click", () => moveImage(-moveMagnitude, 0));
     adjustImageBtns.right.addEventListener("click", () => moveImage(moveMagnitude, 0));
-
     adjustImageBtns.zoomIn.addEventListener("click", () => zoomImage(zoomMagnitude));
     adjustImageBtns.zoomOut.addEventListener("click", () => zoomImage(1/zoomMagnitude));
-
     adjustImageBtns.reset.addEventListener("click", () => resetImagePos());
 };
 
@@ -125,7 +128,6 @@ function loadDPFrameImg() {
         alert("Please select your year level.")
         return;
     }
-    // check if invalid year level
     const yearLevelIsValid = year_levels.some(lvl => lvl === year_level);
     if (!yearLevelIsValid) {
         alert("Invalid year level.")
