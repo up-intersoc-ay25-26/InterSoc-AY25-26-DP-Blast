@@ -145,7 +145,7 @@ function loadDPFrameImg() {
     }
     
     // get the image
-    let frameSrc = `./src/images/frames/AY${academic_year}/${academic_year.includes('2024-2025') ? 'frame' : year_level}.png`;
+    let frameSrc = `./src/images/frames/AY${academic_year}/${academic_year === '2024-2025' ? 'frame' : year_level}.png`;
     images.frame.src = frameSrc;
     images.frame.onload = () => {
         drawDPFrame();
