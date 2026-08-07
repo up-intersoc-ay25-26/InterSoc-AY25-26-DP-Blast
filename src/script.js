@@ -2,6 +2,7 @@ console.log("script loaded");
 
 var stud_name = "";
 var year_level = "";
+var academic_year = "";
 
 const canvas = document.getElementById('dp_frame');
 const context = canvas.getContext("2d");
@@ -10,13 +11,14 @@ const height = canvas.height;
 const moveMagnitude = 8;
 const zoomMagnitude = 1.05;
 
-const imgFrameSrc = [
-    "./src/images/frames/first_year.png",
-    "./src/images/frames/second_year.png",
-    "./src/images/frames/third_year.png",
-    "./src/images/frames/fourth_year.png",
-    "./src/images/frames/faup.png"
-];
+const academic_years = [ '2025-2026', '2026-2027' ]
+const year_levels = [
+    '1st-year',
+    '2nd-year',
+    '3rd-year',
+    '4th-year',
+    'faup'
+]
 
 const images = {
     frame: new Image(),
@@ -78,6 +80,7 @@ function bindImgInput() {
 function showDPCreation() {
     stud_name = document.getElementById('name').value.trim();
     year_level = document.getElementById('year').value;
+    academic_year = document.getElementById('academic-year').value;
 
     if (stud_name === "") {
         alert("Please enter your name!");
@@ -93,6 +96,10 @@ function showDPCreation() {
     // Update Welcome Message and Caption
     const welcomeMsg = document.getElementById('welcome');
     welcomeMsg.innerHTML = `Welcome aboard, ${stud_name}! Rocking that (${year_level}) KOMSAI spirit!`;
+
+
+    const ayTitle = document.getElementById('ay-title');
+    ayTitle.innerHTML = `Academic Year ${academic_year}`;
 
     const caption = document.getElementById('caption');
     caption.innerText = getCaptionTemplate();
@@ -117,20 +124,26 @@ function loadDPFrameImg() {
         alert("Please select your year level.")
         return;
     }
-
-    let frameSrc = '';
-
-    switch(year_level) {
-        case "1st Year": frameSrc = imgFrameSrc[0]; break;
-        case "2nd Year": frameSrc = imgFrameSrc[1]; break;
-        case "3rd Year": frameSrc = imgFrameSrc[2]; break;
-        case "4th Year": frameSrc = imgFrameSrc[3]; break;
-        case "FAUP": frameSrc = imgFrameSrc[4]; break;
-        default:
-            alert("Unrecognized year Level.");
-            return;
+    // check if invalid year level
+    const yearLevelIsValid = year_levels.some(lvl => lvl === year_level);
+    if (!yearLevelIsValid) {
+        alert("Invalid year level.")
+        return;
     }
 
+    if (academic_year === "") {
+        alert("Please select an academic year.")
+        return;
+    }
+    const AYIsValid = academic_years.some(ay => ay === academic_year);
+    if (!AYIsValid) {
+        alert("Invalid academic year.")
+        return;
+    }
+    
+    // get the image
+    let frameSrc = `./src/images/frames/AY${academic_year}/${year_level}.png`;
+    console.log(frameSrc);
     images.frame.src = frameSrc;
     images.frame.onload = () => {
         drawDPFrame();
@@ -191,7 +204,7 @@ function imgUploadHandler(e) {
 function imgDownloadHandler() {
     const link = document.createElement('a');
     link.download = `${stud_name}_DP_Frame_${year_level}_${Date.now()}.png`;
-    link.href = canvas.toDataURL("image/png");;
+    link.href = canvas.toDataURL("image/png");
     link.click();
 
     dwnldStatus = document.getElementById('download_status');
